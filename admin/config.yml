@@ -1,0 +1,38 @@
+backend:
+  name: github
+  repo: taojiabankou663-tech/zenondo-site
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "okotage"
+    label: "御告げ"
+    files:
+      - name: "entries"
+        label: "御告げ一覧"
+        file: "okotage.json"
+        fields:
+          - label: "御告げ"
+            name: "entries"
+            widget: "list"
+            label_singular: "御告げを追加"
+            summary: "{{fields.label}}：{{fields.title}}"
+            fields:
+              - label: "号数表示"
+                name: "label"
+                widget: "string"
+                hint: "例：御告げ　第三号"
+              - label: "題名"
+                name: "title"
+                widget: "string"
+              - label: "本文"
+                name: "body"
+                widget: "text"
+              - label: "署名"
+                name: "signature"
+                widget: "string"
+                required: false
